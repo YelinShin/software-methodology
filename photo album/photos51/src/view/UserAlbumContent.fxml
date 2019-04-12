@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="30.0" layoutY="48.0" text="Album Content">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ListView layoutX="30.0" layoutY="80.0" prefHeight="238.0" prefWidth="225.0" />
+      <Button layoutX="30.0" layoutY="327.0" mnemonicParsing="false" text="Add" />
+      <Button layoutX="269.0" layoutY="190.0" mnemonicParsing="false" text="Add Tag" />
+      <Button layoutX="363.0" layoutY="162.0" mnemonicParsing="false" text="Edit Caption" />
+      <Text layoutX="271.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" />
+      <TextField layoutX="326.0" layoutY="80.0" />
+      <Text layoutX="269.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tag:" />
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" text="&lt; Back" />
+      <Text layoutX="270.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caption:" />
+      <TextField layoutX="326.0" layoutY="107.0" />
+      <TextField layoutX="326.0" layoutY="134.0" />
+      <Button layoutX="85.0" layoutY="327.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="152.0" layoutY="327.0" mnemonicParsing="false" text="Move" />
+      <Button layoutX="209.0" layoutY="327.0" mnemonicParsing="false" text="Copy" />
+      <Button layoutX="340.0" layoutY="190.0" mnemonicParsing="false" text="Delete Tag" />
+      <Button layoutX="269.0" layoutY="162.0" mnemonicParsing="false" text="Add Caption" />
+      <Text layoutX="269.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search by ..." />
+      <Text layoutX="269.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tag:" />
+      <TextField layoutX="302.0" layoutY="251.0" prefHeight="23.0" prefWidth="88.0" />
+      <Text layoutX="269.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Range:" />
+      <DatePicker layoutX="314.0" layoutY="277.0" prefHeight="23.0" prefWidth="87.0" />
+      <Text layoutX="406.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to" />
+      <DatePicker layoutX="420.0" layoutY="277.0" prefHeight="23.0" prefWidth="87.0" />
+      <Button layoutX="452.0" layoutY="307.0" mnemonicParsing="false" text="Search" />
+      <Button layoutX="304.0" layoutY="335.0" mnemonicParsing="false" text="Create Album with Search Result" />
+      <Button layoutX="463.0" layoutY="14.0" mnemonicParsing="false" text="logout" />
+   </children>
+</Pane>
