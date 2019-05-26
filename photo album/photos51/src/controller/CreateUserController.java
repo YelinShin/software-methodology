@@ -23,6 +23,7 @@ import model.User;
 import model.UserList;
 import model.Album;
 
+
 public class CreateUserController {
 	private UserList userList; 
 	private ArrayList<User> users;
@@ -30,6 +31,12 @@ public class CreateUserController {
 	@FXML private TextField txt_Username;
 	@FXML private Button btn_confirm;
 	
+	/**
+	 * @author Yelin
+	 * @param stage
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public void setStage (Stage stage) throws ClassNotFoundException, IOException{
 		try {
 			userList = UserList.read();
@@ -71,6 +78,9 @@ public class CreateUserController {
 		
 		UserList.write(userList);
 		
+		Stage createStage = (Stage)btn_confirm.getScene().getWindow();
+		createStage.close();
+		
 		ObservableList<String> str_users = FXCollections.observableArrayList();
 		 for(int i = 0; i < users.size(); i++){
 			 if(users.isEmpty()) {
@@ -80,16 +90,16 @@ public class CreateUserController {
 			 }
 			 
 		 }
-		 
+		
+		
 		
 		FXMLLoader adminLoad = new FXMLLoader(getClass().getResource("/view/admin.fxml"));
 		Parent root = (Parent)adminLoad.load();
-		Stage primaryStage = (Stage) btn_confirm.getScene().getWindow();
 		Scene s = new Scene(root);
-		primaryStage.setScene(s);
+		AdminPageController.admin_mainstage.setScene(s);
 		AdminPageController adminController = adminLoad.getController();
-		adminController.setStage(primaryStage);
-		primaryStage.show();
+		adminController.setStage(AdminPageController.admin_mainstage);
+		AdminPageController.admin_mainstage.show();
 
 	}
 }

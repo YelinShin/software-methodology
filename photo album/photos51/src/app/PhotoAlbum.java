@@ -17,6 +17,7 @@ import model.Photo;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.EOFException;
@@ -26,7 +27,7 @@ import controller.LoginController;
 
 public class PhotoAlbum extends Application {
 	
-	private List<User> users = new ArrayList<User>();
+	private ArrayList<User> users = new ArrayList<User>();
 
 	
 	@Override
@@ -35,7 +36,7 @@ public class PhotoAlbum extends Application {
 		UserList userList = new UserList();
 		try{
 			userList = UserList.read();
-		}catch(EOFException e){
+		}catch(EOFException e) {
 			
 		}
 		
@@ -49,11 +50,14 @@ public class PhotoAlbum extends Application {
 		File[] stockFiles = stockFile.listFiles();
 		
 		for (final File x: stockFiles){
-			Photo photo = new Photo("Stock Photo", stockAlbum, x);
+			Long modDate = x.lastModified();
+			String date = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(modDate);
+			Photo photo = new Photo(x.getName(), stockAlbum, x, date);
 			stockAlbum.addPhoto(photo);
 		}
 		
 		stock.addAlbum(stockAlbum);
+		
 		
 		if (userList.getUserList().size() == 0){
 			try{

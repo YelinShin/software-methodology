@@ -29,7 +29,7 @@ import model.Album;
 
 
 public class AdminPageController {
-	private Stage Mainstage;
+	public static Stage admin_mainstage;
 	private UserList userList; 
 	private ArrayList<User> users;
 	private ObservableList<String> str_users;
@@ -40,7 +40,12 @@ public class AdminPageController {
 	@FXML private Button btn_Create;
 	@FXML private Button btn_Delete;
 	
-	
+	/**
+	 * @author Yelin
+	 * @param stage
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public void setStage (Stage stage) throws ClassNotFoundException, IOException{
 		try {
 			userList = UserList.read();
@@ -86,8 +91,8 @@ public class AdminPageController {
 		    stage.setResizable(false);
 		    CreateUserController createusercontroller = fxmlLoader.getController();
 		    createusercontroller.setStage(stage);
-		    Mainstage = (Stage)btn_Create.getScene().getWindow();
-		    Mainstage.close();
+		    admin_mainstage = (Stage)btn_Create.getScene().getWindow();
+		    //admin_mainstage.close();
 		    stage.show();
 		}catch (Exception e) {
 			System.out.println("error in add user window");
@@ -110,6 +115,15 @@ public class AdminPageController {
 			 }
 			 
 		 }
+		
+		if (str_selectedUser.equals("admin")){
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("ERROR MESSAGE");
+			alert.setHeaderText("INVALID DELETE NEW USER");
+			alert.setContentText("Cannot delete admin");
+			alert.showAndWait();
+			return;
+		}
 		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Delete User");
@@ -135,7 +149,7 @@ public class AdminPageController {
 				list_users.setItems(str_users);
 				list_users.getSelectionModel().select(0);
 				
-			} 
+			}
 		} catch(Exception e) {
 			System.out.println("error in delete user window");
 		}

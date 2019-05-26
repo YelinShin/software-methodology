@@ -43,7 +43,7 @@ public class LoginController implements Initializable {
 		try{
 			userList = UserList.read();
 				
-		}catch(IOException |ClassNotFoundException e){
+		}catch(IOException |ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
@@ -62,21 +62,29 @@ public class LoginController implements Initializable {
 					mainStage = (Stage)txt_userName.getScene().getWindow();
 					mainStage.close();
 					adminStage.show();
-				}else if(username.equals("stock")){
+				}else {
 					FXMLLoader stockLoad = new FXMLLoader(getClass().getResource("/view/useralbum.fxml"));
 					Parent root = (Parent)stockLoad.load();
 					Scene stockScene = new Scene(root);
 					Stage stockStage = new Stage();
 					stockStage.setScene(stockScene);
 					stockStage.setResizable(false);
-					stockStage.setTitle("Admin Window");
+					stockStage.setTitle(username + "'s Album");
 					UserAlbumController useralbumcontroller = stockLoad.getController();
+					useralbumcontroller.set_user(username);
 					useralbumcontroller.setStage(stockStage);
 					mainStage = (Stage)txt_userName.getScene().getWindow();
 					mainStage.close();
 					stockStage.show();
 				}
 			}else{ 
+				
+				Alert alert = new Alert (AlertType.ERROR);
+				alert.setTitle("ERROR MESSAGE");
+				alert.setHeaderText("INVALID USER");
+				alert.setContentText("User does not exist. Please input a valid user");
+				alert.showAndWait();
+				return;
 				
 			}
 		}catch(IOException e){

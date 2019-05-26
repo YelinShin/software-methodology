@@ -23,18 +23,33 @@ public class UserList implements Serializable{
 		this.userList = new ArrayList<User>();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<User> getUserList(){
 		return this.userList;
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 */
 	public void addUser(User user) {
 		userList.add(user);
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 */
 	public void removeUser(User user) {
 		userList.remove(user);
 	}
 	
+	/**
+	 * 
+	 */
 	public String toString() {
 		String tmpUserList ="";
 		if (this.userList == null) {
@@ -48,6 +63,11 @@ public class UserList implements Serializable{
 		return tmpUserList;
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 */
 	public User login (String username) {
 		for(User x: userList) {
 			if(username.equals(x.getUsername())) {
@@ -57,6 +77,11 @@ public class UserList implements Serializable{
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 */
 	public boolean dupUser (String username) {
 		for(User x: userList) {
 			if(username.equals(x.getUsername())) {
@@ -66,6 +91,12 @@ public class UserList implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static UserList read() throws IOException, ClassNotFoundException{
 		UserList allUsers = null;
 		ObjectInputStream o;
@@ -78,6 +109,12 @@ public class UserList implements Serializable{
 		return allUsers;
 	}
 	
+	/**
+	 * 
+	 * @param userList
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void write(UserList userList) throws IOException, ClassNotFoundException{
 		file.createNewFile();
 		FileOutputStream f = new FileOutputStream(file);

@@ -2,21 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SlideShowController">
    <children>
       <Label layoutX="222.0" layoutY="37.0" text="Slide Show">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="30.0" layoutY="179.0" mnemonicParsing="false" text="&lt;" />
-      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" text="&lt; Back" />
-      <Button layoutX="477.0" layoutY="179.0" mnemonicParsing="false" text="&gt;" />
-      <Button layoutX="463.0" layoutY="14.0" mnemonicParsing="false" text="logout" />
-      <ImageView fitHeight="251.0" fitWidth="399.0" layoutX="70.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btn_prevPhoto" layoutX="30.0" layoutY="179.0" mnemonicParsing="false" onAction="#prevPhoto" text="&lt;" />
+      <Button fx:id="btn_nextPhoto" layoutX="477.0" layoutY="179.0" mnemonicParsing="false" onAction="#nextPhoto" text="&gt;" />
+      <TilePane fx:id="tile_photo" layoutX="99.0" layoutY="79.0" prefHeight="246.0" prefWidth="340.0" />
+      <Button fx:id = "btn_done" onAction ="#done" layoutX="463.0" layoutY="336.0" mnemonicParsing="false" text="Done" />
    </children>
 </Pane>

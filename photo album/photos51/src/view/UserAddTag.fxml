@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="302.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateTagController">
    <children>
-      <Button layoutX="179.0" layoutY="102.0" mnemonicParsing="false" text="Submit" />
-      <Text layoutX="122.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tag">
+      <Button fx:id="btn_submit" onAction="#submit" layoutX="145.0" layoutY="213.0" mnemonicParsing="false" text="Submit" />
+      <Text layoutX="106.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tag">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="62.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
-      <TextField layoutX="102.0" layoutY="42.0" />
-      <Text layoutX="62.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value:" />
-      <TextField layoutX="102.0" layoutY="70.0" />
+      <Text layoutX="28.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
+      <Text layoutX="28.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value:" />
+      <TextField fx:id="tag_value" layoutX="68.0" layoutY="181.0" />
+      <ScrollPane layoutX="69.0" layoutY="56.0" prefHeight="87.0" prefWidth="153.0">
+         <content>
+            <ListView fx:id="list_tagType" prefHeight="88.0" prefWidth="154.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id = "txt_newType" layoutX="68.0" layoutY="151.0" prefHeight="23.0" prefWidth="183.0" promptText="if you want to add NEW type" />
    </children>
 </Pane>

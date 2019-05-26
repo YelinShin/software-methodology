@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Photoalbum51</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="stock_imgs">
+        <item>@drawable/man</item>
+        <item>@drawable/dog</item>
+    </string-array>
+</resources>
